@@ -8,7 +8,7 @@ const RightSideNav = ({ courses }) => {
       {courses.map((course) => (
         <div key={course.id}>
           <p className="text-white">
-            <Link to="/topic" className="link-hover">
+            <Link to={`/topic/${course.id}`} className="link-hover">
               {course.name}
             </Link>
           </p>

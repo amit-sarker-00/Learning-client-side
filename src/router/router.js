@@ -31,7 +31,7 @@ export const router = createBrowserRouter([
       { path: "/rightSideNav", element: <RightSideNav></RightSideNav> },
       { path: "/register", element: <Register></Register> },
       {
-        path: "/topic",
+        path: "/topic/:id",
         element: (
           <PrivateRoute>
             <Topic></Topic>
