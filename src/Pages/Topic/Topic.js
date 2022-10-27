@@ -5,7 +5,6 @@ import { useReactToPrint } from "react-to-print";
 
 const Topic = () => {
   const topicDetails = useLoaderData();
-  console.log(topicDetails);
   const { name, img, details } = topicDetails;
 
   const componentRef = useRef();
@@ -17,7 +16,15 @@ const Topic = () => {
 
   return (
     <div>
-      <div ref={componentRef} className="card w-96 bg-base-100 shadow-xl">
+      <div className="text-center my-10">
+        <button onClick={handelPdf} className="btn btn-primary">
+          Download pdf
+        </button>
+      </div>
+      <div
+        ref={componentRef}
+        className="card w-96 bg-base-100 shadow-xl mx-auto"
+      >
         <figure className="px-10 pt-10">
           <img src={img} alt="Shoes" className="rounded-xl" />
         </figure>
@@ -26,9 +33,6 @@ const Topic = () => {
           <p>{details}</p>
           <div className="card-actions">
             <button className="btn btn-primary">Buy</button>
-            <button onClick={handelPdf} className="btn btn-primary">
-              Buy
-            </button>
           </div>
         </div>
       </div>
