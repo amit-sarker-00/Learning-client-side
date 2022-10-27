@@ -41,6 +41,9 @@ const Header = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal p-0">
           <li>
+            <Link to="/home">Home</Link>
+          </li>
+          <li>
             <Link to="/courses">Courses</Link>
           </li>
 
@@ -79,7 +82,8 @@ const Header = () => {
             src={user?.photoURL}
           ></img>
         ) : (
-          <FaUser className="ml-2"></FaUser>
+          // <FaUser className="ml-2"></FaUser>
+          <div></div>
         )}
       </>
     </div>

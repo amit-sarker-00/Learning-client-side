@@ -13,7 +13,7 @@ const HomePage = ({ home }) => {
         />
         <div className="flex flex-col justify-between p-6 space-y-8">
           <div className="space-y-2">
-            <h2 className="text-3xl font-semibold tracking-wide">{name}</h2>
+            <h2 className="text-xl font-semibold tracking-wide">{name}</h2>
           </div>
           <button
             type="button"
