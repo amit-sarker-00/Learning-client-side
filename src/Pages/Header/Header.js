@@ -57,8 +57,9 @@ const Header = () => {
             <Link to="/blog">Blog</Link>
           </li>
           <li>
+            {/* this is for toogle button  */}
             <div className="flex">
-              <label class="inline-flex relative items-center mr-5 cursor-pointer">
+              <label className="inline-flex relative items-center mr-5 cursor-pointer">
                 <input
                   type="checkbox"
                   className="sr-only peer "

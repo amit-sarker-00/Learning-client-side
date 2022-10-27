@@ -5,8 +5,12 @@ import { AuthContext } from "../AuthProvider/AuthProvider";
 import { FaGoogle, FaGithub } from "react-icons/fa";
 
 const Register = () => {
-  const { createUser, updateUserProfile, registerWithGoogle } =
-    useContext(AuthContext);
+  const {
+    createUser,
+    updateUserProfile,
+    registerWithGoogle,
+    registerWithGithub,
+  } = useContext(AuthContext);
   const handelSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -42,6 +46,14 @@ const Register = () => {
       })
       .catch((error) => console.error(error));
   };
+  const handelGithubSignUp = () => {
+    registerWithGithub()
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => console.error(error));
+  };
   return (
     <div>
       <div>
@@ -55,7 +67,7 @@ const Register = () => {
                 </button>
               </div>
               <div className="form-control mt-3">
-                <button className="btn btn-danger">
+                <button onClick={handelGithubSignUp} className="btn btn-danger">
                   <FaGithub className="text-2xl"></FaGithub>{" "}
                   <h2 className="ml-2">Github</h2>
                 </button>
