@@ -5,6 +5,8 @@ import Courses from "../Pages/Courses/Courses";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
+import RightSideNav from "../Pages/RightSideNav/RightSideNav";
+import Topic from "../Pages/Topic/Topic";
 import Blog from "../Shared/Blog/Blog";
 import ErrorPage from "../Shared/ErrorPage/ErrorPage";
 
@@ -25,7 +27,14 @@ export const router = createBrowserRouter([
       },
       { path: "/login", element: <Login></Login> },
       { path: "/blog", element: <Blog></Blog> },
+      { path: "/rightSideNav", element: <RightSideNav></RightSideNav> },
       { path: "/register", element: <Register></Register> },
+      {
+        path: "/topic",
+        element: <Topic></Topic>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/courses/${params.id}`),
+      },
       {
         path: "/courses",
         element: <Courses></Courses>,

@@ -9,7 +9,7 @@ const Header = () => {
   // this state for toggle
   const [toggle, setToggle] = useState(false);
   const { user, logOut } = useContext(AuthContext);
-  console.log(user);
+
   const handelLogOut = () => {
     logOut()
       .then(() => {})
@@ -38,7 +38,7 @@ const Header = () => {
         </div>
         <Link to="/home" className="btn btn-ghost normal-case text-xl">
           <FaBookReader className="mr-1"></FaBookReader>
-          <p>Educational Services</p>
+          <p>EduChamp</p>
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
@@ -95,6 +95,7 @@ const Header = () => {
         )}
         {user?.photoURL ? (
           <img
+            title={user.displayName}
             className="ml-2"
             alt=""
             style={{ height: "30px" }}

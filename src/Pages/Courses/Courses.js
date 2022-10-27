@@ -1,16 +1,29 @@
 import React from "react";
 import { useLoaderData } from "react-router-dom";
 import Course from "../Course/Course";
+import RightSideNav from "../RightSideNav/RightSideNav";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
+import Aos from "aos";
 
 const Courses = () => {
   const courses = useLoaderData();
 
-  console.log(courses);
+  useEffect(() => {
+    Aos.init();
+  }, []);
   return (
-    <div className="grid xl:grid-cols-3 lg:grid-cols-2 gap-10 justify-center my-20 ">
-      {courses.map((course) => (
-        <Course key={course.id} course={course}></Course>
-      ))}
+    <div className="grid grid-cols-5">
+      <div className="grid grid-cols-1 my-20 ml-3">
+        <RightSideNav courses={courses}></RightSideNav>
+      </div>
+      <div className="col-span-4">
+        <div className="grid xl:grid-cols-3 lg:grid-cols-2 gap-10 justify-center my-20 ">
+          {courses.map((course) => (
+            <Course key={course.id} course={course}></Course>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };

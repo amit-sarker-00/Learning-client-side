@@ -4,7 +4,10 @@ const Course = ({ course }) => {
   const { img, name } = course;
   return (
     <div>
-      <div className="card card-compact w-96 bg-base-100 shadow-xl">
+      <div
+        data-aos="fade-up"
+        className="card card-compact w-96 bg-base-100 shadow-xl"
+      >
         <figure>
           <img className="h-52" src={img} alt="Shoes" />
         </figure>
