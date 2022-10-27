@@ -44,17 +44,37 @@ const Header = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal p-0">
           <li>
-            <Link to="/home">Home</Link>
+            <Link
+              to="/home"
+              className={({ isActive }) => (isActive ? "active-link" : "link")}
+            >
+              Home
+            </Link>
           </li>
           <li>
-            <Link to="/courses">Courses</Link>
+            <Link
+              to="/courses"
+              className={({ isActive }) => (isActive ? "active-link" : "link")}
+            >
+              Courses
+            </Link>
           </li>
 
           <li>
-            <Link to="/faq">FAQ</Link>
+            <Link
+              to="/faq"
+              className={({ isActive }) => (isActive ? "active-link" : "link")}
+            >
+              FAQ
+            </Link>
           </li>
           <li>
-            <Link to="/blog">Blog</Link>
+            <Link
+              to="/blog"
+              className={({ isActive }) => (isActive ? "active-link" : "link")}
+            >
+              Blog
+            </Link>
           </li>
           <li>
             {/* this is for toogle button  */}
