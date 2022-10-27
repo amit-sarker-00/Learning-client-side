@@ -4,10 +4,10 @@ import { useLoaderData } from "react-router-dom";
 const Topic = () => {
   const topicDetails = useLoaderData();
   console.log(topicDetails);
-  //   const { name, img, details } = topicDetails;
+  const { name, img, details } = topicDetails;
   return (
     <div>
-      {/* <div className="card w-96 bg-base-100 shadow-xl">
+      <div className="card w-96 bg-base-100 shadow-xl">
         <figure className="px-10 pt-10">
           <img src={img} alt="Shoes" className="rounded-xl" />
         </figure>
@@ -18,7 +18,7 @@ const Topic = () => {
             <button className="btn btn-primary">Buy</button>
           </div>
         </div>
-      </div> */}
+      </div>
     </div>
   );
 };
