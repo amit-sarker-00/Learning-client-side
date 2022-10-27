@@ -9,6 +9,7 @@ import RightSideNav from "../Pages/RightSideNav/RightSideNav";
 import Topic from "../Pages/Topic/Topic";
 import Blog from "../Shared/Blog/Blog";
 import ErrorPage from "../Shared/ErrorPage/ErrorPage";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -31,7 +32,11 @@ export const router = createBrowserRouter([
       { path: "/register", element: <Register></Register> },
       {
         path: "/topic",
-        element: <Topic></Topic>,
+        element: (
+          <PrivateRoute>
+            <Topic></Topic>
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/courses/${params.id}`),
       },
