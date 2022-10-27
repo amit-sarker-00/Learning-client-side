@@ -4,19 +4,18 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const Login = () => {
-  const { logIn, logOut, user } = useContext(AuthContext);
+  const { logIn } = useContext(AuthContext);
   const handelSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
+    // console.log(email, password);
     logIn(email, password)
       .then((result) => {
         const user = result.user;
         console.log(user);
         form.reset();
-        logOut();
       })
       .catch((error) => console.error(error));
   };
@@ -58,15 +57,10 @@ const Login = () => {
                   </p>
                 </label>
               </div>
-              {user?.uid ? (
-                <div className="form-control mt-6">
-                  <button className="btn btn-primary">LogOut</button>
-                </div>
-              ) : (
-                <div className="form-control mt-6">
-                  <button className="btn btn-primary">Login</button>
-                </div>
-              )}
+
+              <div className="form-control mt-6">
+                <button className="btn btn-primary">Login</button>
+              </div>
             </form>
           </div>
         </div>

@@ -1,8 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FaBookReader } from "react-icons/fa";
+import { FaBookReader, FaUser } from "react-icons/fa";
+import { useContext } from "react";
+import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const Header = () => {
+  const { user, logOut } = useContext(AuthContext);
+  console.log(user);
+  const handelLogOut = () => {
+    logOut()
+      .then(() => {})
+      .catch((error) => console.error(error));
+  };
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">
@@ -46,11 +55,33 @@ const Header = () => {
           </li>
         </ul>
       </div>
-      <div className="navbar-end">
-        <Link to="/login" className="btn">
-          Login
-        </Link>
-      </div>
+      <>
+        {user?.uid ? (
+          <>
+            <div className="navbar-end">
+              <button onClick={handelLogOut} className="btn">
+                LogOut
+              </button>
+            </div>
+          </>
+        ) : (
+          <div className="navbar-end">
+            <Link to="/login" className="btn">
+              Login
+            </Link>
+          </div>
+        )}
+        {user?.photoURL ? (
+          <img
+            className="ml-2"
+            alt=""
+            style={{ height: "30px" }}
+            src={user?.photoURL}
+          ></img>
+        ) : (
+          <FaUser className="ml-2"></FaUser>
+        )}
+      </>
     </div>
   );
 };
