@@ -11,8 +11,16 @@ export const router = createBrowserRouter([
     path: "/",
     element: <Main></Main>,
     children: [
-      { path: "/", element: <Home></Home> },
-      { path: "/home", element: <Home></Home> },
+      {
+        path: "/",
+        element: <Home></Home>,
+        loader: () => fetch("platform.json"),
+      },
+      {
+        path: "/home",
+        element: <Home></Home>,
+        loader: () => fetch("platform.json"),
+      },
       { path: "/login", element: <Login></Login> },
       { path: "/register", element: <Register></Register> },
     ],

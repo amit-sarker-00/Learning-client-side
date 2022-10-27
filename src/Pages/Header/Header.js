@@ -13,8 +13,8 @@ const Header = () => {
       .catch((error) => console.error(error));
   };
   return (
-    <div className="navbar bg-base-100">
-      <div className="navbar-start">
+    <div className="navbar bg-base-100 font-mono">
+      <div className="navbar-start ">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
             <svg
@@ -34,8 +34,8 @@ const Header = () => {
           </label>
         </div>
         <Link to="/home" className="btn btn-ghost normal-case text-xl">
-          <FaBookReader></FaBookReader>
-          Educational Services
+          <FaBookReader className="mr-1"></FaBookReader>
+          <p>Educational Services</p>
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
