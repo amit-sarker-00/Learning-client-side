@@ -11,6 +11,9 @@ const Register = () => {
     registerWithGoogle,
     registerWithGithub,
   } = useContext(AuthContext);
+
+  // for navigate route
+
   const handelSubmit = (event) => {
     event.preventDefault();
     const form = event.target;

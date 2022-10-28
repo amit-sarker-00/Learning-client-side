@@ -32,7 +32,7 @@ const Topic = () => {
           <h2 className="card-title">{name}</h2>
           <p>{details}</p>
           <div className="card-actions">
-            <button className="btn btn-primary">Buy</button>
+            <button className="btn btn-primary">Premium</button>
           </div>
         </div>
       </div>

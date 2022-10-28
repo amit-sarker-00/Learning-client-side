@@ -113,16 +113,15 @@ const Header = () => {
             </Link>
           </div>
         )}
-        {user?.photoURL ? (
+        {user?.displayName ? (
           <img
             title={user.displayName}
-            className="ml-2"
+            className="ml-2 rounded-lg"
             alt=""
             style={{ height: "30px" }}
             src={user?.photoURL}
           ></img>
         ) : (
-          // <FaUser className="ml-2"></FaUser>
           <div></div>
         )}
       </>
