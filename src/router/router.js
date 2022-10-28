@@ -38,12 +38,15 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/courses/${params.id}`),
+          fetch(
+            `https://assignment-10-server-fawn-eight.vercel.app/courses/${params.id}`
+          ),
       },
       {
         path: "/courses",
         element: <Courses></Courses>,
-        loader: () => fetch("http://localhost:5000/"),
+        loader: () =>
+          fetch("https://assignment-10-server-fawn-eight.vercel.app/"),
       },
     ],
   },
