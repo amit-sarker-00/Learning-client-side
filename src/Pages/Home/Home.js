@@ -2,8 +2,6 @@ import React from "react";
 import { useLoaderData } from "react-router-dom";
 import HomePage from "../Homepage/HomePage";
 
-import "./Home.css";
-
 const Home = () => {
   const homePage = useLoaderData();
   return (
@@ -27,7 +25,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="grid lg:grid-cols-3 md:grid-cols-2 ml-28">
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 justify-center">
         {homePage.map((home) => (
           <HomePage key={home.id} home={home}></HomePage>
         ))}

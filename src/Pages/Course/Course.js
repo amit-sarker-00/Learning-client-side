@@ -6,7 +6,7 @@ const Course = ({ course }) => {
     <div>
       <div
         data-aos="fade-up"
-        className="card card-compact w-96 bg-base-100 shadow-xl"
+        className="card card-compact  bg-base-100 shadow-xl"
       >
         <figure>
           <img className="h-52" src={img} alt="Shoes" />

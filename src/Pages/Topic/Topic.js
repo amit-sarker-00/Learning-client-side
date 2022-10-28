@@ -5,7 +5,7 @@ import { useReactToPrint } from "react-to-print";
 
 const Topic = () => {
   const topicDetails = useLoaderData();
-  const { name, img, details } = topicDetails;
+  const { id, name, img, details } = topicDetails;
 
   const componentRef = useRef();
   const handelPdf = useReactToPrint({
@@ -23,17 +23,17 @@ const Topic = () => {
       </div>
       <div
         ref={componentRef}
-        className="card w-96 bg-base-100 shadow-xl mx-auto"
+        className="card sm:w-80 bg-base-100 shadow-xl mx-auto"
       >
-        <figure className="px-10 pt-10">
-          <img src={img} alt="Shoes" className="rounded-xl" />
+        <figure>
+          <img src={img} alt="" className=" rounded-xl" />
         </figure>
         <div className="card-body items-center text-center">
-          <h2 className="card-title">{name}</h2>
+          <h2 className="card-title text-3xl">{name}</h2>
           <p>{details}</p>
-          <div className="card-actions">
-            <button className="btn btn-primary">
-              <Link to="/checkout">Get premium access</Link>
+          <div className="card-actions card-compact">
+            <button className="btn btn-primary my-10">
+              <Link to={`/checkout/${id}`}>Get premium access</Link>
             </button>
           </div>
         </div>

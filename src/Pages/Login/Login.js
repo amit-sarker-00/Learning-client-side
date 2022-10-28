@@ -1,10 +1,14 @@
 import React from "react";
+import { useState } from "react";
 import { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const Login = () => {
   const { logIn } = useContext(AuthContext);
+
+  const [error, setError] = useState("");
+
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
@@ -13,15 +17,27 @@ const Login = () => {
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
+
     // console.log(email, password);
     logIn(email, password)
       .then((result) => {
         const user = result.user;
         console.log(user);
         form.reset();
+        setError("");
         navigate(from, { replace: true });
       })
-      .catch((error) => console.error(error));
+      .catch((error) => {
+        console.error(error);
+        const errorMessage = error.message;
+        setError(errorMessage);
+        if (error.message === "Firebase: Error (auth/wrong-password).") {
+          setError("wrong password");
+        }
+        if (error.message === "Firebase: Error (auth/user-disabled).") {
+          setError("invalid user");
+        }
+      });
   };
   return (
     <div>
@@ -52,6 +68,9 @@ const Login = () => {
                   name="password"
                   required
                 />
+
+                <p className="bg-red-600 text-white my-2">{error}</p>
+
                 <label className="label">
                   <p className="label-text-alt ">
                     Don't Have an Account ? please{" "}

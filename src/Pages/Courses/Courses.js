@@ -13,8 +13,8 @@ const Courses = () => {
     Aos.init();
   }, []);
   return (
-    <div className="grid grid-cols-5">
-      <div className="grid grid-cols-1 my-20 ml-3">
+    <div className="grid md:grid-cols-5 sm:justify-center">
+      <div className="grid grid-cols-1 mt-20 ">
         <RightSideNav courses={courses}></RightSideNav>
       </div>
       <div className="col-span-4">

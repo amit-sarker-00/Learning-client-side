@@ -46,12 +46,16 @@ export const router = createBrowserRouter([
           fetch("https://assignment-10-server-fawn-eight.vercel.app/"),
       },
       {
-        path: "/checkout",
+        path: "/checkout/:id",
         element: (
           <PrivateRoute>
             <Checkout></Checkout>
           </PrivateRoute>
         ),
+        loader: ({ params }) =>
+          fetch(
+            `https://assignment-10-server-fawn-eight.vercel.app/courses/${params.id}`
+          ),
       },
     ],
   },
