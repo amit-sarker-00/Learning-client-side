@@ -25,3 +25,7 @@
 # 10.Show the error message on login
 
 # 11. checkout premium page added
+
+# 12. responsive done
+
+# website link : https://educational-services-d9f7c.web.app/register
