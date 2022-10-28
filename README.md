@@ -8,7 +8,7 @@
 
 # 2.create a home page
 
-# 3. load data from data backend side
+# 3. load data from backend side
 
 # 4. design by tailwind css
 
@@ -22,4 +22,6 @@
 
 # 9.user profile set end of the header
 
-# 10.
+# 10.Show the error message on login
+
+# 11. checkout premium page added
