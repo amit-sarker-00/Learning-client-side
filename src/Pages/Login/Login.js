@@ -1,11 +1,13 @@
 import React from "react";
 import { useState } from "react";
 import { useContext } from "react";
+import { FaGithub, FaGoogle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const Login = () => {
-  const { logIn } = useContext(AuthContext);
+  const { logIn, registerWithGoogle, registerWithGithub } =
+    useContext(AuthContext);
 
   const [error, setError] = useState("");
 
@@ -22,7 +24,7 @@ const Login = () => {
     logIn(email, password)
       .then((result) => {
         const user = result.user;
-        console.log(user);
+        // console.log(user);
         form.reset();
         setError("");
         navigate(from, { replace: true });
@@ -39,11 +41,43 @@ const Login = () => {
         }
       });
   };
+  const handelGoogleSignUp = () => {
+    registerWithGoogle()
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => console.error(error));
+  };
+  const handelGithubSignUp = () => {
+    registerWithGithub()
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => console.error(error));
+  };
   return (
     <div>
       <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+            <div className="form-control mt-4">
+              <button onClick={handelGoogleSignUp} className="btn btn-danger">
+                <FaGoogle className="text-2xl"> </FaGoogle>{" "}
+                <h2 className="ml-2 text-white">Google</h2>
+              </button>
+            </div>
+            <div className="form-control mt-3">
+              <button onClick={handelGithubSignUp} className="btn btn-danger">
+                <FaGithub className="text-2xl"></FaGithub>{" "}
+                <h2 className="ml-2">Github</h2>
+              </button>
+            </div>
+            <div className="text-center">
+              <h1>Or</h1>
+              <p>Login with</p>
+            </div>
             <form onSubmit={handelSubmit} className="card-body">
               <div className="form-control">
                 <label className="label">

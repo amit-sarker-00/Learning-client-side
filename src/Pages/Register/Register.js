@@ -11,7 +11,6 @@ const Register = () => {
     registerWithGoogle,
     registerWithGithub,
   } = useContext(AuthContext);
-
   // for navigate route
 
   const handelSubmit = (event) => {
@@ -19,6 +18,7 @@ const Register = () => {
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
+    const name = form.name.value;
     const photoURL = form.photoURL.value;
     console.log(email, password, photoURL);
     createUser(email, password)
@@ -26,7 +26,7 @@ const Register = () => {
         const user = result.user;
         console.log(user);
         form.reset();
-        handelUserUpdateProfile();
+        handelUserUpdateProfile(name, photoURL);
       })
       .catch((error) => {
         console.error(error);
