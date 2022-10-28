@@ -1,6 +1,7 @@
 import React from "react";
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../layout/Main";
+import Checkout from "../Pages/Checkout/Checkout";
 import Courses from "../Pages/Courses/Courses";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
@@ -32,11 +33,7 @@ export const router = createBrowserRouter([
       { path: "/register", element: <Register></Register> },
       {
         path: "/topic/:id",
-        element: (
-          <PrivateRoute>
-            <Topic></Topic>
-          </PrivateRoute>
-        ),
+        element: <Topic></Topic>,
         loader: ({ params }) =>
           fetch(
             `https://assignment-10-server-fawn-eight.vercel.app/courses/${params.id}`
@@ -47,6 +44,14 @@ export const router = createBrowserRouter([
         element: <Courses></Courses>,
         loader: () =>
           fetch("https://assignment-10-server-fawn-eight.vercel.app/"),
+      },
+      {
+        path: "/checkout",
+        element: (
+          <PrivateRoute>
+            <Checkout></Checkout>
+          </PrivateRoute>
+        ),
       },
     ],
   },

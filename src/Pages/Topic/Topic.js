@@ -1,6 +1,6 @@
 import React from "react";
 import { useRef } from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { useReactToPrint } from "react-to-print";
 
 const Topic = () => {
@@ -32,7 +32,9 @@ const Topic = () => {
           <h2 className="card-title">{name}</h2>
           <p>{details}</p>
           <div className="card-actions">
-            <button className="btn btn-primary">Premium</button>
+            <button className="btn btn-primary">
+              <Link to="/checkout">Get premium access</Link>
+            </button>
           </div>
         </div>
       </div>
